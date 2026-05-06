@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitação de Reposição – Sensor Guardian™ | Medtronic Brasil</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <!--
+    LANDING PAGE — Solicitação de Reposição Sensor Guardian™ — Medtronic Brasil
+    Estrutura multi-step com 4 etapas + barra de progresso + navegação Voltar/Avançar
+    CSS escopado em .mdt-lp · zero dependências externas
+
+    Integrações (assets/js/main.js → objeto CONFIG):
+      rdToken          — Token público do RD Station (Integrações → API)
+      crmEmail         — atendimento.diabetes@medtronic.com (via FormSubmit.co)
+      successRedirectUrl — https://info.medtronicdiabetes.com/suporte_ao_usuario
+  -->
+
+  <div class="mdt-lp">
+
+    <!-- ============================================================
+         HEADER — banner azul full-width com logo Minimed | Medtronic
+    ============================================================ -->
+    <header class="mdt-header">
+      <div class="mdt-header-logo" aria-label="Minimed | Medtronic">
+        <img class="mdt-logo-m" src="./assets/img/div.hdr-icon.png" alt="" aria-hidden="true" />
+        <span class="mdt-logo-minimed">minimed</span>
+        <span class="mdt-logo-divider" aria-hidden="true"></span>
+        <span class="mdt-logo-medtronic">Medtronic</span>
+      </div>
+    </header>
+
+    <div class="mdt-container">
+
+      <!-- ==========================================================
+           HERO CARD — título + selo GUARDIAN™
+      ========================================================== -->
+      <div class="mdt-hero">
+        <div class="mdt-hero-left">
+          <span class="mdt-hero-icon" aria-hidden="true">
+            <img src="./assets/img/div.hdr-icon.png" alt="" />
+          </span>
+          <div class="mdt-hero-text">
+            <h1>Solicitação de Reposição – Sensor Guardian™</h1>
+            <p>Medtronic Brasil · Diabetes Care</p>
+          </div>
+        </div>
+        <span class="mdt-hero-badge">GUARDIAN™</span>
+      </div>
+
+      <!-- ==========================================================
+           BARRA DE PROGRESSO — 4 etapas
+      ========================================================== -->
+      <div class="mdt-progress" id="mdtProgress" aria-label="Progresso do formulário">
+        <div class="mdt-progress-bar active" data-step="1"></div>
+        <div class="mdt-progress-bar" data-step="2"></div>
+        <div class="mdt-progress-bar" data-step="3"></div>
+        <div class="mdt-progress-bar" data-step="4"></div>
+      </div>
+
+      <!-- ==========================================================
+           CARD PRINCIPAL DO FORMULÁRIO
+      ========================================================== -->
+      <div class="mdt-card">
+
+        <!-- Intro / instruções (sempre visível) -->
+        <div class="mdt-intro">
+          <p>
+            Sentimos muito com o ocorrido com seu sensor de glicose
+            <strong>Guardian™</strong>. Para iniciar sua solicitação de reposição,
+            tenha em mãos as informações do <strong>código do sensor</strong>,
+            <strong>lote do sensor</strong>, bem como as
+            <strong>informações pessoais do usuário</strong> da terapia.
+          </p>
+          <p>
+            No formulário abaixo, você encontrará uma série de perguntas que
+            surgirão conforme as informações forem fornecidas sobre a situação
+            que está relatando.
+          </p>
+        </div>
+
+        <div class="mdt-alert">
+          ⚠️ <strong>Atenção:</strong> Se você estiver em uma emergência médica,
+          entre em contato com seu médico e/ou dirija-se a um pronto-socorro
+          imediatamente.
+        </div>
+
+        <p class="mdt-required-note"><span>*</span> indica campos obrigatórios</p>
+
+        <form id="mdtForm" novalidate>
+
+          <!-- ==================================================
+               PÁGINA 1 — Modelo do sensor
+          ================================================== -->
+          <div class="mdt-page active" data-page="1">
+            <div class="mdt-section">
+              <div class="mdt-section-title">
+                Qual modelo e código de sensor Guardian™ você utiliza?<span style="color:#c0392b">*</span>
+              </div>
+
+              <div class="mdt-radio-group">
+                <label>
+                  <input type="radio" name="modelo_sensor" value="guardian3" required />
+                  <span>
+                    Sensor Guardian™ 3, para uso com bomba de Insulina MiniMed™ 640G e 780G
+                    <br />
+                    <span style="font-size:12px;color:#666;">Código MMT-7020C1</span>
+                  </span>
+                </label>
+                <label>
+                  <input type="radio" name="modelo_sensor" value="guardian4" />
+                  <span>
+                    Sensor Guardian™ 4, para uso com bomba de Insulina MiniMed™ 780G
+                    <br />
+                    <span style="font-size:12px;color:#666;">Código MMT-7040C8</span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="mdt-sensor-note">
+                Os sensores Guardian™ podem ser muito parecidos, portanto, veja
+                as informações da caixa para se certificar que selecionou o
+                código correto.
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================
+               PÁGINA 2 — Situação do sensor (+ sub-perguntas)
+          ================================================== -->
+          <div class="mdt-page" data-page="2">
+            <div class="mdt-section" id="step-erro">
+              <div class="mdt-section-title">
+                Qual situação o sensor apresentou?<span style="color:#c0392b">*</span>
+              </div>
+
+              <div class="mdt-radio-group">
+                <label><input type="radio" name="tipo_problema" value="sangue" /> Sangue no local de aplicação do sensor</label>
+                <label><input type="radio" name="tipo_problema" value="calibracao" /> Calibração rejeitada</label>
+                <label><input type="radio" name="tipo_problema" value="trocar" /> Trocar sensor</label>
+                <label><input type="radio" name="tipo_problema" value="atualizacao" /> Atualização do sensor</label>
+              </div>
+
+              <div class="mdt-suporte-note">
+                Se você apresentou algum problema que não está listado acima,
+                por favor, contate nosso suporte técnico 24 horas / 7 dias por
+                semana: <strong>0800 773 9200</strong>.
+              </div>
+            </div>
+
+            <!-- Filtro: Calibração rejeitada -->
+            <div class="mdt-step" id="step-calibracao">
+              <div class="mdt-section">
+                <div class="mdt-section-title normal-case">Calibração rejeitada — verificação</div>
+
+                <div class="mdt-row">
+                  <div class="mdt-field full">
+                    <label>Você removeu o sensor?<span class="req">*</span></label>
+                    <div class="mdt-radio-group inline">
+                      <label><input type="radio" name="removeu_sensor" value="sim" /> Sim</label>
+                      <label><input type="radio" name="removeu_sensor" value="nao" /> Não</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sub-filtro: removeu = não → dias de uso -->
+                <div class="mdt-step" id="step-dias">
+                  <hr class="mdt-divider" />
+                  <div class="mdt-row">
+                    <div class="mdt-field full">
+                      <label>Quantos dias o sensor está em uso?<span class="req">*</span></label>
+                      <div class="mdt-radio-group inline">
+                        <label><input type="radio" name="dias_uso" value="1" /> 1</label>
+                        <label><input type="radio" name="dias_uso" value="2" /> 2</label>
+                        <label><input type="radio" name="dias_uso" value="3" /> 3</label>
+                        <label><input type="radio" name="dias_uso" value="4" /> 4</label>
+                        <label><input type="radio" name="dias_uso" value="5" /> 5</label>
+                        <label><input type="radio" name="dias_uso" value="6" /> 6</label>
+                        <label><input type="radio" name="dias_uso" value="7" /> 7</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sub-filtro: glicemia/calibração há mais de 3h -->
+                <div class="mdt-step" id="step-glicemia">
+                  <hr class="mdt-divider" />
+                  <div class="mdt-row">
+                    <div class="mdt-field full">
+                      <label>Foi solicitado "Glicemia e/ou calibração" há mais de três horas?<span class="req">*</span></label>
+                      <div class="mdt-radio-group inline">
+                        <label><input type="radio" name="glicemia_3h" value="sim" /> Sim</label>
+                        <label><input type="radio" name="glicemia_3h" value="nao" /> Não</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bloqueio calibração -->
+                <div class="mdt-blocked" id="blocked-calibracao">
+                  Você indicou que está tendo uma situação adversa e não conseguiremos
+                  seguir por aqui seu atendimento e reposição. Para este caso, por favor,
+                  ligue para nosso suporte técnico: <strong>0800 773 9200</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Filtro: Atualização do sensor -->
+            <div class="mdt-step" id="step-atualizacao">
+              <div class="mdt-section">
+                <div class="mdt-section-title normal-case">Atualização do sensor — verificação</div>
+
+                <div class="mdt-row">
+                  <div class="mdt-field full">
+                    <label>Você está com a mensagem de "Atualização do sensor" por mais de três (3) horas?<span class="req">*</span></label>
+                    <div class="mdt-radio-group inline">
+                      <label><input type="radio" name="atualizacao_3h" value="sim" /> Sim</label>
+                      <label><input type="radio" name="atualizacao_3h" value="nao" /> Não</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mdt-blocked" id="blocked-atualizacao">
+                  Você indicou que está tendo uma situação adversa e não conseguiremos
+                  seguir seu atendimento por aqui. Por favor, ligue para nosso suporte
+                  técnico: <strong>0800 773 9200</strong> para uma melhor avaliação.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================
+               PÁGINA 3 — Dados do usuário + sensor info
+          ================================================== -->
+          <div class="mdt-page" data-page="3">
+            <div class="mdt-section">
+              <div class="mdt-section-title">Dados do usuário</div>
+
+              <div class="mdt-row">
+                <div class="mdt-field half">
+                  <label for="cpf">CPF do usuário<span class="req">*</span></label>
+                  <input type="text" id="cpf" name="cpf" placeholder="Somente números" maxlength="11" required />
+                  <span class="mdt-hint">Apenas os 11 dígitos, sem pontuação.</span>
+                </div>
+                <div class="mdt-field half">
+                  <label for="nome">Nome completo do usuário<span class="req">*</span></label>
+                  <input type="text" id="nome" name="nome_completo" required />
+                </div>
+              </div>
+
+              <div class="mdt-row">
+                <div class="mdt-field full">
+                  <label for="endereco">Endereço completo com número e complemento<span class="req">*</span></label>
+                  <input type="text" id="endereco" name="endereco" placeholder="Rua, nº, complemento, bairro" required />
+                </div>
+              </div>
+
+              <div class="mdt-row">
+                <div class="mdt-field third">
+                  <label for="cidade">Cidade<span class="req">*</span></label>
+                  <input type="text" id="cidade" name="cidade" required />
+                </div>
+                <div class="mdt-field third">
+                  <label for="estado">Estado<span class="req">*</span></label>
+                  <select id="estado" name="estado" required>
+                    <option value="">Selecione</option>
+                    <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                    <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                    <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                    <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                    <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                    <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                    <option>SP</option><option>SE</option><option>TO</option>
+                  </select>
+                </div>
+                <div class="mdt-field third">
+                  <label for="cep">CEP<span class="req">*</span></label>
+                  <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required />
+                </div>
+              </div>
+
+              <div class="mdt-row">
+                <div class="mdt-field half">
+                  <label for="telefone">Telefone principal com DDD<span class="req">*</span></label>
+                  <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" maxlength="15" required />
+                </div>
+                <div class="mdt-field half">
+                  <label for="email">E-mail principal<span class="req">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+                </div>
+              </div>
+
+              <div class="mdt-row">
+                <div class="mdt-field full">
+                  <label for="serieBomba">Número de série da bomba<span class="req">*</span></label>
+                  <input type="text" id="serieBomba" name="serie_bomba" placeholder="Ex: NG222222290" required />
+                  <span class="mdt-hint">Coloque as letras e números (Ex: NG222222290).</span>
+                </div>
+              </div>
+
+              <div class="mdt-row">
+                <div class="mdt-field full">
+                  <label for="serieTransmissor">Número de série do transmissor<span class="req">*</span></label>
+                  <input type="text" id="serieTransmissor" name="serie_transmissor" placeholder="Inicia com GT" required />
+                  <span class="mdt-hint">Inicia com GT e está atrás de seu transmissor.</span>
+                </div>
+              </div>
+
+              <div class="mdt-row">
+                <div class="mdt-field full">
+                  <label>Selecione o modelo de sua bomba<span class="req">*</span></label>
+                  <div class="mdt-radio-group inline">
+                    <label><input type="radio" name="modelo_bomba" value="minimed780g" /> MiniMed™ 780G</label>
+                    <label><input type="radio" name="modelo_bomba" value="minimed640g" /> MiniMed™ 640G</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mdt-section">
+              <div class="mdt-section-title">Informações do sensor</div>
+
+              <div class="mdt-row">
+                <div class="mdt-field half">
+                  <label for="dataColocacao">Data da aplicação do sensor<span class="req">*</span></label>
+                  <input type="date" id="dataColocacao" name="data_colocacao" required />
+                </div>
+                <div class="mdt-field half">
+                  <label for="horarioColocacao">Horário de aplicação do sensor<span class="req">*</span></label>
+                  <input type="time" id="horarioColocacao" name="horario_colocacao" required />
+                </div>
+              </div>
+
+              <div class="mdt-row">
+                <div class="mdt-field full">
+                  <label for="localAplicacao">Local de aplicação do sensor<span class="req">*</span></label>
+                  <input type="text" id="localAplicacao" name="local_aplicacao" placeholder="Ex: abdômen, braço direito..." required />
+                </div>
+              </div>
+
+              <div class="mdt-row">
+                <div class="mdt-field full">
+                  <label for="loteSensor">Número do lote do sensor</label>
+                  <input type="text" id="loteSensor" name="lote_sensor" placeholder="Encontra-se na embalagem do sensor ou na caixa" />
+                  <span class="mdt-hint">Encontra-se na embalagem do sensor ou na caixa.</span>
+                </div>
+              </div>
+
+              <div class="mdt-row">
+                <div class="mdt-field half">
+                  <label for="dataProblema">Data do ocorrido<span class="req">*</span></label>
+                  <input type="date" id="dataProblema" name="data_problema" required />
+                </div>
+                <div class="mdt-field half">
+                  <label for="horarioProblema">Horário do ocorrido<span class="req">*</span></label>
+                  <input type="time" id="horarioProblema" name="horario_problema" required />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================================================
+               PÁGINA 4 — Autorização e Termos + Submit
+          ================================================== -->
+          <div class="mdt-page" data-page="4">
+            <div class="mdt-section">
+              <div class="mdt-section-title">Autorização e Termos</div>
+              <div class="mdt-terms-box">
+                <p>
+                  Suas informações pessoais serão utilizadas de acordo com nossa
+                  <a href="https://www.medtronic.com/br-pt/privacy-statement.html" target="_blank"><strong>Política de Privacidade</strong></a>,
+                  com a finalidade de processar sua solicitação de substituição e atualizar seu cadastro.
+                </p>
+                <p>
+                  Esta ferramenta permite o limite de uma (1) solicitação de substituição
+                  de sensor por mês. Caso experimente uma recorrência de sua situação
+                  entre em contato com o nosso suporte técnico:
+                  <strong>0800 773 9200</strong> ou
+                  atendimento.diabetes@medtronic.com para uma avaliação.
+                </p>
+                <p>
+                  O prazo de entrega dos produtos de substituição, após o envio do
+                  formulário, é de até <strong>20 dias úteis</strong>.
+                </p>
+              </div>
+
+              <label class="mdt-checkbox-label">
+                <input type="checkbox" id="analiseEquipe" name="analise_equipe" required />
+                <span>
+                  Estou ciente de que a substituição será analisada pela equipe
+                  técnica para confirmar a elegibilidade para a troca em garantia
+                  antes do envio, podendo ser recusada caso não seja identificado
+                  nenhum problema coberto pela garantia.<span class="req">*</span>
+                </span>
+              </label>
+
+              <label class="mdt-checkbox-label">
+                <input type="checkbox" id="autorizaContato" name="autoriza_contato" required />
+                <span>
+                  Autorizo a Medtronic a entrar em contato comigo, se necessário,
+                  para solicitar informações adicionais sobre esta solicitação.<span class="req">*</span>
+                </span>
+              </label>
+
+              <label class="mdt-checkbox-label">
+                <input type="checkbox" id="aceitaTermos" name="aceita_termos" required />
+                <span>
+                  Declaro que li e aceito os
+                  <a href="https://www.medtronic.com/br-pt/terms-of-use.html" target="_blank"><strong>Termos e Condições</strong></a>
+                  e a
+                  <a href="https://www.medtronic.com/br-pt/privacy-statement.html" target="_blank"><strong>Política de Privacidade de Dados</strong></a>.<span class="req">*</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ==================================================
+               NAVEGAÇÃO MULTI-STEP
+          ================================================== -->
+          <div class="mdt-nav">
+            <span class="mdt-nav-step-info" id="mdtStepInfo">Etapa 1 de 4</span>
+            <div class="mdt-nav-buttons">
+              <button type="button" class="mdt-btn mdt-btn-secondary" id="mdtBackBtn" style="display:none;">← Voltar</button>
+              <button type="button" class="mdt-btn mdt-btn-primary" id="mdtNextBtn">Avançar →</button>
+              <button type="submit" class="mdt-btn mdt-btn-submit" id="mdtSubmitBtn" style="display:none;">Submeter pedido</button>
+            </div>
+          </div>
+
+        </form>
+
+        <!-- Erro de envio -->
+        <div class="mdt-submit-error" id="mdtSubmitError">
+          Ocorreu um erro ao enviar o formulário. Verifique sua conexão e tente novamente.
+          Caso o problema persista, entre em contato pelo <strong>0800 773 9200</strong>.
+        </div>
+
+        <!-- Mensagem de sucesso -->
+        <div class="mdt-success" id="mdtSuccess">
+          <h3>✅ Formulário encaminhado com sucesso.</h3>
+          <p>
+            Sua solicitação de reposição foi recebida. O prazo de entrega é de
+            até 20 dias úteis após o envio.<br />
+            Você será redirecionado para a página de suporte em instantes…
+          </p>
+        </div>
+
+      </div>
+      <!-- /mdt-card -->
+
+      <!-- Suporte -->
+      <div class="mdt-support">
+        Estamos à disposição para auxiliar em quaisquer informações adicionais
+        em nosso suporte técnico:<br />
+        <strong>0800 773 9200</strong> (24h, todos os dias)<br />
+        atendimento.diabetes@medtronic.com (segunda à sexta-feira, das 9h às 18h)
+      </div>
+
+      <!-- Footer -->
+      <div class="mdt-footer">
+        <p>
+          Esta página está direcionada somente a usuários dos produtos de
+          Diabetes da Medtronic Brasil.
+        </p>
+        <p>
+          Registro ANVISA: sistema MiniMed™ 780G 10349001315, MiniMed™ 640G
+          10339190656 © 2026 Medtronic MiniMed. MiniMed e o logotipo MiniMed
+          são marcas comerciais da Medtronic MiniMed, Inc.™ Marcas de
+          terceiros são marcas comerciais de seus respectivos proprietários.
+          Todas as demais marcas são marcas comerciais de uma empresa MiniMed.
+        </p>
+      </div>
+
+    </div>
+    <!-- /mdt-container -->
+  </div>
+  <!-- /mdt-lp -->
+
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

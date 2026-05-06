@@ -1,0 +1,11 @@
+# Bloqueia acesso direto ao arquivo de tokens OAuth
+<Files "rd_tokens.json">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Força UTF-8
+AddDefaultCharset UTF-8
+
+# Segurança básica
+Options -Indexes

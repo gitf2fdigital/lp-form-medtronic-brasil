@@ -1,0 +1,722 @@
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+.mdt-lp *,
+.mdt-lp *::before,
+.mdt-lp *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.mdt-lp {
+  font-family: "Segoe UI", "DM Sans", Arial, sans-serif;
+  font-size: 15px;
+  color: #1a1a1a;
+  line-height: 1.6;
+  background: #f5f7fb;
+  min-height: 100vh;
+  padding-bottom: 48px;
+}
+
+.mdt-lp img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+/* =========================================================
+   HEADER (banner azul full-width com logo)
+   ========================================================= */
+.mdt-lp .mdt-header {
+  width: 100%;
+  background: #2754ec;
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mdt-lp .mdt-header-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: #fff;
+  font-family: "DM Sans", "Segoe UI", Arial, sans-serif;
+  line-height: 1;
+}
+
+.mdt-lp .mdt-header-logo .mdt-logo-m {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.mdt-lp .mdt-header-logo .mdt-logo-minimed {
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+.mdt-lp .mdt-header-logo .mdt-logo-divider {
+  width: 1.5px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.85);
+  margin: 0 4px;
+}
+
+.mdt-lp .mdt-header-logo .mdt-logo-medtronic {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+/* =========================================================
+   CONTAINER PRINCIPAL
+   ========================================================= */
+.mdt-lp .mdt-container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 28px 16px 0;
+}
+
+/* =========================================================
+   HERO CARD (título + badge GUARDIAN)
+   ========================================================= */
+.mdt-lp .mdt-hero {
+  background: #2754ec;
+  color: #fff;
+  border-radius: 10px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 6px 18px rgba(39, 84, 236, 0.18);
+  flex-wrap: wrap;
+}
+
+.mdt-lp .mdt-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.mdt-lp .mdt-hero-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mdt-lp .mdt-hero-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mdt-lp .mdt-hero-text h1 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 2px;
+}
+
+.mdt-lp .mdt-hero-text p {
+  font-size: 13px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.mdt-lp .mdt-hero-badge {
+  background: #fff;
+  color: #2754ec;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   PROGRESS BAR (4 etapas)
+   ========================================================= */
+.mdt-lp .mdt-progress {
+  display: flex;
+  gap: 8px;
+  margin: 22px 4px 18px;
+}
+
+.mdt-lp .mdt-progress-bar {
+  flex: 1 1 0;
+  height: 5px;
+  background: #d6dde8;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.mdt-lp .mdt-progress-bar.active {
+  background: #2754ec;
+}
+
+/* =========================================================
+   CONTEÚDO / CARDS
+   ========================================================= */
+.mdt-lp .mdt-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(15, 30, 70, 0.06);
+  padding: 28px 30px;
+  margin-bottom: 18px;
+}
+
+.mdt-lp .mdt-intro {
+  background: #eef3fc;
+  border-left: 4px solid #2754ec;
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: #1f2a44;
+}
+
+.mdt-lp .mdt-intro strong {
+  color: #1d3fb8;
+}
+
+.mdt-lp .mdt-intro p + p {
+  margin-top: 8px;
+}
+
+.mdt-lp .mdt-alert {
+  background: #f3faf2;
+  border-left: 4px solid #f5a623;
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  color: #4f4022;
+  margin-bottom: 18px;
+}
+
+.mdt-lp .mdt-alert strong {
+  color: #b97a00;
+}
+
+.mdt-lp .mdt-required-note {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 22px;
+}
+
+.mdt-lp .mdt-required-note span {
+  color: #c0392b;
+  font-weight: 700;
+}
+
+/* =========================================================
+   SEÇÕES / TÍTULOS
+   ========================================================= */
+.mdt-lp .mdt-section {
+  margin-bottom: 26px;
+}
+
+.mdt-lp .mdt-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2754ec;
+  border-bottom: 1.5px solid #2754ec;
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.mdt-lp .mdt-section-title.normal-case {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 15px;
+}
+
+/* =========================================================
+   FIELDS
+   ========================================================= */
+.mdt-lp .mdt-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.mdt-lp .mdt-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 220px;
+}
+
+.mdt-lp .mdt-field.full {
+  flex: 1 1 100%;
+}
+
+.mdt-lp .mdt-field.half {
+  flex: 1 1 calc(50% - 7px);
+}
+
+.mdt-lp .mdt-field.third {
+  flex: 1 1 calc(33% - 10px);
+}
+
+.mdt-lp label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.mdt-lp label .req {
+  color: #c0392b;
+  margin-left: 2px;
+}
+
+.mdt-lp input[type="text"],
+.mdt-lp input[type="email"],
+.mdt-lp input[type="tel"],
+.mdt-lp input[type="date"],
+.mdt-lp input[type="time"],
+.mdt-lp select,
+.mdt-lp textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccd5e2;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: inherit;
+}
+
+.mdt-lp select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%232754EC' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.mdt-lp input:focus,
+.mdt-lp select:focus,
+.mdt-lp textarea:focus {
+  outline: none;
+  border-color: #2754ec;
+  box-shadow: 0 0 0 3px rgba(39, 84, 236, 0.14);
+}
+
+.mdt-lp textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.mdt-lp .mdt-hint {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   RADIOS / CHECKBOX
+   ========================================================= */
+.mdt-lp .mdt-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.mdt-lp .mdt-radio-group.inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+
+.mdt-lp .mdt-radio-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1.5;
+  color: #1f2a44;
+}
+
+.mdt-lp .mdt-radio-group input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #2754ec;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.mdt-lp .mdt-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1.55;
+  margin-bottom: 14px;
+  color: #1f2a44;
+}
+
+.mdt-lp .mdt-checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #2754ec;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* =========================================================
+   PASSOS DA LP (mdt-page) e sub-passos condicionais (mdt-step)
+   ========================================================= */
+.mdt-lp .mdt-page {
+  display: none;
+}
+
+.mdt-lp .mdt-page.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.mdt-lp .mdt-step {
+  display: none;
+}
+
+.mdt-lp .mdt-step.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   BLOQUEIOS
+   ========================================================= */
+.mdt-lp .mdt-blocked {
+  display: none;
+  background: #fff3e0;
+  border: 1px solid #fb8c00;
+  border-radius: 6px;
+  padding: 18px 20px;
+  font-size: 14px;
+  color: #5d3a00;
+  line-height: 1.7;
+  margin-top: 16px;
+}
+
+.mdt-lp .mdt-blocked.visible {
+  display: block;
+}
+
+.mdt-lp .mdt-blocked strong {
+  color: #2754ec;
+}
+
+/* =========================================================
+   NOTAS DE APOIO
+   ========================================================= */
+.mdt-lp .mdt-suporte-note {
+  font-size: 13px;
+  color: #555;
+  background: #f5f7fb;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin-top: 14px;
+  font-style: italic;
+}
+
+.mdt-lp .mdt-sensor-note {
+  font-size: 13px;
+  color: #555;
+  font-style: italic;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #f0f5fa;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   TERMS BOX
+   ========================================================= */
+.mdt-lp .mdt-terms-box {
+  background: #f7fafd;
+  border: 1px solid #d6e1f4;
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.7;
+}
+
+.mdt-lp .mdt-terms-box p + p {
+  margin-top: 8px;
+}
+
+.mdt-lp .mdt-terms-box strong {
+  color: #2754ec;
+}
+
+.mdt-lp .mdt-terms-box a {
+  color: #2754ec;
+}
+
+/* =========================================================
+   NAVEGAÇÃO MULTI-STEP (Voltar / Avançar)
+   ========================================================= */
+.mdt-lp .mdt-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid #e7ecf4;
+  flex-wrap: wrap;
+}
+
+.mdt-lp .mdt-nav-step-info {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.mdt-lp .mdt-nav-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mdt-lp .mdt-btn {
+  font-size: 14.5px;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 11px 26px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  font-family: inherit;
+  letter-spacing: 0.2px;
+}
+
+.mdt-lp .mdt-btn:active {
+  transform: translateY(1px);
+}
+
+.mdt-lp .mdt-btn-primary {
+  background: #2754ec;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(39, 84, 236, 0.25);
+}
+
+.mdt-lp .mdt-btn-primary:hover {
+  background: #1d3fb8;
+}
+
+.mdt-lp .mdt-btn-primary:disabled {
+  background: #9aa6c4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.mdt-lp .mdt-btn-secondary {
+  background: #fff;
+  color: #2754ec;
+  border: 1px solid #2754ec;
+}
+
+.mdt-lp .mdt-btn-secondary:hover {
+  background: #eef3fc;
+}
+
+.mdt-lp .mdt-btn-submit {
+  background: #2754ec;
+  color: #fff;
+  padding: 13px 38px;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(39, 84, 236, 0.28);
+}
+
+.mdt-lp .mdt-btn-submit:hover {
+  background: #1d3fb8;
+}
+
+.mdt-lp .mdt-btn-submit:disabled {
+  background: #9aa6c4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================================================
+   SUCCESS
+   ========================================================= */
+.mdt-lp .mdt-success {
+  display: none;
+  background: #e8f5e9;
+  border: 1px solid #66bb6a;
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  margin-top: 18px;
+}
+
+.mdt-lp .mdt-success h3 {
+  color: #2e7d32;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.mdt-lp .mdt-success p {
+  color: #388e3c;
+  font-size: 14px;
+}
+
+/* =========================================================
+   ERROR TOAST
+   ========================================================= */
+.mdt-lp .mdt-submit-error {
+  display: none;
+  background: #fdecea;
+  border: 1px solid #e53935;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 13.5px;
+  color: #7f1010;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.mdt-lp .mdt-submit-error.visible {
+  display: block;
+}
+
+/* =========================================================
+   SUPPORT BOX
+   ========================================================= */
+.mdt-lp .mdt-support {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+  margin-top: 18px;
+  padding: 16px 22px;
+  background: #fff;
+  border: 1px solid #d6e1f4;
+  border-radius: 8px;
+  line-height: 1.7;
+}
+
+.mdt-lp .mdt-support strong {
+  color: #2754ec;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.mdt-lp .mdt-footer {
+  margin-top: 18px;
+  padding: 22px 26px;
+  background: #1d3fb8;
+  border-radius: 8px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.9;
+  text-align: center;
+}
+
+.mdt-lp .mdt-footer p + p {
+  margin-top: 6px;
+}
+
+.mdt-lp .mdt-footer a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   VALIDAÇÃO
+   ========================================================= */
+.mdt-lp input.invalid,
+.mdt-lp select.invalid,
+.mdt-lp textarea.invalid {
+  border-color: #c0392b;
+}
+
+.mdt-lp .mdt-error-msg {
+  font-size: 11.5px;
+  color: #c0392b;
+  margin-top: 4px;
+}
+
+.mdt-lp .mdt-divider {
+  border: none;
+  border-top: 1px dashed #d6e1f4;
+  margin: 20px 0;
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+@media (max-width: 720px) {
+  .mdt-lp .mdt-card {
+    padding: 22px 18px;
+  }
+
+  .mdt-lp .mdt-hero {
+    padding: 18px 20px;
+  }
+
+  .mdt-lp .mdt-hero-text h1 {
+    font-size: 16px;
+  }
+
+  .mdt-lp .mdt-hero-badge {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .mdt-lp .mdt-field.half,
+  .mdt-lp .mdt-field.third {
+    flex: 1 1 100%;
+  }
+
+  .mdt-lp .mdt-nav {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .mdt-lp .mdt-nav-buttons {
+    justify-content: space-between;
+  }
+
+  .mdt-lp .mdt-btn {
+    flex: 1 1 auto;
+  }
+}
